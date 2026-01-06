@@ -1,0 +1,28 @@
+.navegacio {
+    border-bottom: 1px solid var(--grey);
+}
+
+.opcio {
+    font-weight: 600;
+}
+
+.titles {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.operationButton {
+    background-color: var(--blue);
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    font-size: 15px;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.operationButton:hover {
+    background-color: #072468;
+    color: white;
+}

@@ -1,0 +1,51 @@
+<div class="connector-block">
+    <div class="w3-row connectors w3-hide-medium w3-hide-small">
+        <div class="w3-col l3 m2 imatge-estat">
+            <img id="connector{{ id }}" src="../static/imatges/unknown.png" alt="unknown" class="foto">
+        </div>
+        <div class="w3-col l5 m5">
+            <h3>CONNECTOR {{ 2 if id % 2 == 0 else 1 }}</h3>
+            <p id="idTag{{ id }}">IdTag: (carregador sense cap transacció)</p>
+            <p id="transactionId{{ id }}">TransactionId: (carregador sense cap transacció)</p>
+        </div>
+        <div class="w3-col l4 m5 w3-right-align">
+            <form class="formulari" onsubmit="mostraOperacio(event, {{ id }})">
+                <select name="operations" id="operations{{id}}" class="dropdown" onchange="actualitzaBoto({{ id }})">
+                  <option value="ChangeAvailability{{ id }}">ChangeAvailability</option>
+                  <option value="ClearCache{{ id }}">ClearCache</option>
+                  <option value="DataTransfer{{ id }}">DataTransfer</option>
+                  <option value="GetConfiguration{{ id }}">GetConfiguration</option>
+                  <option value="RemoteStartTransaction{{ id }}">RemoteStartTransaction</option>
+                  <option value="RemoteStopTransaction{{ id }}">RemoteStopTransaction</option>
+                  <option value="Reset{{ id }}">Reset</option>
+                  <option value="UnlockConnector{{ id }}">UnlockConnector</option>
+                </select>
+                <input type="submit" id="operationButton{{ id }}" class="mostrar-operacio" value="Mostrar Operació">
+            </form>
+        </div>
+    </div>
+
+    <div class="w3-row connectors w3-hide-large">
+        <div class="w3-col s6 imatge-estat">
+            <img id="connector{{ id }}Mobile" src="../static/imatges/unknown.png" alt="unknown" class="foto">
+        </div>
+        <div class="w3-col s6">
+            <h3>CONNECTOR {{ 2 if id % 2 == 0 else 1 }}</h3>
+            <p id="idTagMobile{{ id }}">IdTag: (carregador sense cap transacció)</p>
+            <p id="transactionIdMobile{{ id }}">TransactionId: (carregador sense cap transacció)</p>
+            <form class="formulari" onsubmit="mostraOperacio(event, {{ id }}, true)">
+                <select name="operations" id="operationsMobile{{id}}" class="dropdown" onchange="actualitzaBoto({{ id }})">
+                  <option value="ChangeAvailability{{ id }}">ChangeAvailability</option>
+                  <option value="ClearCache{{ id }}">ClearCache</option>
+                  <option value="DataTransfer{{ id }}">DataTransfer</option>
+                  <option value="GetConfiguration{{ id }}">GetConfiguration</option>
+                  <option value="RemoteStartTransaction{{ id }}">RemoteStartTransaction</option>
+                  <option value="RemoteStopTransaction{{ id }}">RemoteStopTransaction</option>
+                  <option value="Reset{{ id }}">Reset</option>
+                  <option value="UnlockConnector{{ id }}">UnlockConnector</option>
+                </select>
+                <input type="submit" id="operationButtonMobile{{ id }}" class="mostrar-operacio" value="Mostrar Operació">
+            </form>
+        </div>
+    </div>
+</div>

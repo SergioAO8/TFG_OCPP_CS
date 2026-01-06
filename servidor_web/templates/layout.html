@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="../static/styles/styles.css">
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+        <header class="w3-container header w3-padding-16">
+            <div class="w3-row header-row">
+                <div class="w3-col s3 m3 l4">
+                    <h2>OCPP CS</h2>
+                </div>
+                <div class="w3-col s5 m7 l4">
+                    <nav class="w3-bar w3-center">
+                        <div class="nav-wrapper">
+                            <a href="{{ url_for('index') }}"
+                               class="w3-bar-item w3-button {% if pagina_actual == 'index' %}active-tab{% endif %}">
+                               INICI
+                            </a>
+                            <a href="{{ url_for('estadistiques') }}"
+                               class="w3-bar-item w3-button {% if pagina_actual == 'estadistiques' %}active-tab{% endif %}">
+                               ESTADÍSTIQUES
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="w3-col s4 l4 m2 w3-right-align">
+                    <button id="logOut" class="w3-bar-item w3-button w3-center w3-mobile buttons">Logout</button>
+                    <script>
+                        document.getElementById("logOut").addEventListener('click', function() {
+                            window.location.href = '/logout';
+                        });
+                    </script>
+                </div>                
+            </div>
+        </header>
+
+        <main>
+        {% block contingut %}{% endblock %}
+        </main>
+
+    </div>
+    {% endblock %}
+</body>
+</html>

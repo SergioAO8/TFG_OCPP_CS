@@ -1,0 +1,140 @@
+<div class="w3-row">
+    <div class="w3-col l12 s12 m5">
+        <div id="ChangeAvailability{{ id }}" class="operation{{ id }}" style="display: none;">
+          <h2 class="titles">ChangeAvailability</h2>
+          <form class="formulari ws-form" data-operation="changeAvailability">
+              <input name="charger" type="hidden" value="{{ id_charger }}">  
+              <input name="connectorId" type="hidden" value="{{ connector }}">
+              <label for="type" class="opcio">Estat</label>
+              <select name="type" id="type">
+                <option value="Inoperative">Inoperative</option>
+                <option value="Operative">Operative</option>
+              </select>
+              <br><br>
+              <input type="submit" value="Enviar operació">
+            </form>
+        </div>
+
+        <div id="ClearCache{{ id }}" class="operation{{ id }}" style="display:none">
+          <h2 class="titles">ClearCache</h2>
+          <p>No cal especificar cap camp per a aquesta operació.</p>
+          <form class="formulari ws-form" data-operation="clearCache">
+            <input name="charger" type="hidden" value="{{ id_charger }}">  
+            <input type="submit" value="Enviar operació">
+          </form>
+        </div>
+
+        <div id="DataTransfer{{ id }}" class="operation{{ id }}" style="display:none">
+          <h2 class="titles">DataTransfer</h2>
+          <form class="formulari ws-form" data-operation="dataTransfer">
+              <input name="charger" type="hidden" value="{{ id_charger }}">
+              <label for="vendorId" class="opcio">vendorId</label>
+              <input name="vendorId" id="vendorId" required></input>
+              <label for="messageId" class="opcio">messageId</label>
+              <input name="messageId" id="messageId" required></input>
+              <label for="data" class="opcio">data (format JSON)</label>
+              <textarea name="data" id="data" rows="5" cols="40" required></textarea>
+              <br><br>
+              <input type="submit" value="Enviar operació">
+          </form>
+        </div>
+
+        <div id="GetConfiguration{{ id }}" class="operation{{ id }}" style="display:none">
+          <h2 class="titles">GetConfiguration</h2>
+          <form class="ws-form" data-operation="getConfiguration">
+              <input name="charger" type="hidden" value="{{ id_charger }}">
+              <input type="checkbox" id="AuthorizeRemoteTxRequests" name="AuthorizeRemoteTxRequests" value="AuthorizeRemoteTxRequests">
+              <label for="AuthorizeRemoteTxRequests"> AuthorizeRemoteTxRequests</label><br>
+              <input type="checkbox" id="ClockAlignedDataInterval" name="ClockAlignedDataInterval" value="ClockAlignedDataInterval">
+              <label for="ClockAlignedDataInterval"> ClockAlignedDataInterval</label><br>
+              <input type="checkbox" id="ConnectionTimeOut" name="ConnectionTimeOut" value="ConnectionTimeOut">
+              <label for="ConnectionTimeOut"> ConnectionTimeOut</label><br>
+              <input type="checkbox" id="ConnectorPhaseRotation" name="ConnectorPhaseRotation" value="ConnectorPhaseRotation">
+              <label for="ConnectorPhaseRotation"> ConnectorPhaseRotation</label><br>
+              <input type="checkbox" id="GetConfigurationMaxKeys" name="GetConfigurationMaxKeys" value="GetConfigurationMaxKeys">
+              <label for="GetConfigurationMaxKeys"> GetConfigurationMaxKeys</label><br>
+              <input type="checkbox" id="HeartbeatInterval" name="HeartbeatInterval" value="HeartbeatInterval">
+              <label for="HeartbeatInterval"> HeartbeatInterval</label><br>
+              <input type="checkbox" id="LocalAuthorizeOffline" name="LocalAuthorizeOffline" value="LocalAuthorizeOffline">
+              <label for="LocalAuthorizeOffline"> LocalAuthorizeOffline</label><br>
+              <input type="checkbox" id="LocalPreAuthorize" name="LocalPreAuthorize" value="LocalPreAuthorize">
+              <label for="LocalPreAuthorize"> LocalPreAuthorize</label><br>
+              <input type="checkbox" id="MeterValuesAlignedData" name="MeterValuesAlignedData" value="MeterValuesAlignedData">
+              <label for="MeterValuesAlignedData"> MeterValuesAlignedData</label><br>
+              <input type="checkbox" id="MeterValuesSampledData" name="MeterValuesSampledData" value="MeterValuesSampledData">
+              <label for="MeterValuesSampledData"> MeterValuesSampledData</label><br>
+              <input type="checkbox" id="MeterValueSampleInterval" name="MeterValueSampleInterval" value="MeterValueSampleInterval">
+              <label for="MeterValueSampleInterval"> MeterValueSampleInterval</label><br>
+              <input type="checkbox" id="NumberOfConnectors" name="NumberOfConnectors" value="BlinkRNumberOfConnectorsepeat">
+              <label for="NumberOfConnectors"> NumberOfConnectors</label><br>
+              <input type="checkbox" id="ResetRetries" name="ResetRetries" value="ResetRetries">
+              <label for="ResetRetries"> ResetRetries</label><br>
+              <input type="checkbox" id="StopTransactionOnEVSideDisconnect" name="StopTransactionOnEVSideDisconnect" value="StopTransactionOnEVSideDisconnect">
+              <label for="StopTransactionOnEVSideDisconnect"> StopTransactionOnEVSideDisconnect</label><br>
+              <input type="checkbox" id="StopTransactionOnInvalidId" name="StopTransactionOnInvalidId" value="StopTransactionOnInvalidId">
+              <label for="StopTransactionOnInvalidId"> StopTransactionOnInvalidId</label><br>
+              <input type="checkbox" id="StopTxnAlignedData" name="StopTxnAlignedData" value="StopTxnAlignedData">
+              <label for="StopTxnAlignedData"> StopTxnAlignedData</label><br>
+              <input type="checkbox" id="StopTxnSampledData" name="StopTxnSampledData" value="StopTxnSampledData">
+              <label for="StopTxnSampledData"> StopTxnSampledData</label><br>
+              <input type="checkbox" id="SupportedFeatureProfiles" name="SupportedFeatureProfiles" value="SupportedFeatureProfiles">
+              <label for="SupportedFeatureProfiles"> SupportedFeatureProfiles</label><br>
+              <input type="checkbox" id="TransactionMessageAttempts" name="TransactionMessageAttempts" value="TransactionMessageAttempts">
+              <label for="TransactionMessageAttempts"> TransactionMessageAttempts</label><br>
+              <input type="checkbox" id="TransactionMessageRetryInterval" name="TransactionMessageRetryInterval" value="TransactionMessageRetryInterval">
+              <label for="TransactionMessageRetryInterval"> TransactionMessageRetryInterval</label><br>
+              <input type="checkbox" id="UnlockConnectorOnEVSideDisconnect" name="UnlockConnectorOnEVSideDisconnect" value="UnlockConnectorOnEVSideDisconnect">
+              <label for="UnlockConnectorOnEVSideDisconnect"> UnlockConnectorOnEVSideDisconnect</label><br>
+              <br><br>
+              <input type="submit" value="Enviar operació">
+          </form>
+        </div>
+        
+        <div id="RemoteStartTransaction{{ id }}" class="operation{{ id }}" style="display:none">
+          <h2 class="titles">RemoteStartTransaction</h2>
+          <form class="formulari ws-form" data-operation="remoteStartTransaction">
+              <input name="charger" type="hidden" value="{{ id_charger }}">
+              <input name="connectorId" type="hidden" value="{{ connector }}">
+              <label for="idTag" class="opcio">idTag</label>
+              <input name="idTag" id="idTag" required></input>
+              <br><br>
+              <input type="submit" value="Enviar operació">
+          </form>
+        </div>
+
+        <div id="RemoteStopTransaction{{ id }}" class="operation{{ id }}" style="display:none">
+          <h2 class="titles">RemoteStopTransaction</h2>
+          <form class="formulari ws-form" data-operation="remoteStopTransaction">
+              <input name="charger" type="hidden" value="{{ id_charger }}">
+              <label for="transactionId" class="opcio">transactionId</label>
+              <input name="transactionId" id="transactionId" required></input>
+              <br><br>
+              <input type="submit" value="Enviar operació">
+          </form>
+        </div>
+
+        <div id="Reset{{ id }}" class="operation{{ id }}" style="display:none">
+          <h2 class="titles">Reset</h2>
+          <form class="formulari ws-form" data-operation="reset">
+              <input name="charger" type="hidden" value="{{ id_charger }}">
+              <label for="type" class="opcio">Tipus</label>
+              <select name="type" id="type">
+                <option value="Hard">Hard</option>
+                <option value="Soft">Soft</option>
+              </select>
+              <br><br>
+              <input type="submit" value="Enviar operació">
+            </form>
+        </div>
+
+        <div id="UnlockConnector{{ id }}" class="operation{{ id }}" style="display:none">
+          <h2 class="titles">UnlockConnector</h2>
+          <p>No cal especificar cap camp per a aquesta operació.</p>
+          <form class="formulari ws-form" data-operation="unlockConnector">
+              <input name="charger" type="hidden" value="{{ id_charger }}">
+              <input name="connectorId" type="hidden" value="{{ connector }}">
+              <input type="submit" value="Enviar operació">
+            </form>
+        </div>
+    </div>
+</div>

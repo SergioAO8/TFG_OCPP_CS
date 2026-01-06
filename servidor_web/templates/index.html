@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block contingut %}
+<div style="background-color: white;">
+    <div class="w3-container menu w3-bar w3-padding-16">
+        <button id="default-tab" class="w3-bar-item w3-button w3-center w3-mobile">CARREGADOR 1</button>
+        <button id="ch1" class="w3-bar-item w3-button w3-center w3-mobile">CARREGADOR 2</button>
+        <button id="ch2" class="w3-bar-item w3-button w3-center w3-mobile">CARREGADOR 3</button>
+        <button id="ch3" class="w3-bar-item w3-button w3-center w3-mobile">CARREGADOR 4</button>
+    </div>
+</div>
+
+{% set chargers = [0, 1, 2, 3] %}
+{% for id_ch in chargers %}
+<div id="charger{{ id_ch }}" class="charger">
+    <div class="w3-row w3-center info">
+        <h2 id="estatGeneral{{ id_ch }}">ESTAT DEL CARREGADOR {{ id_ch + 1 }}: Desconnectat</h2>
+        <p id="vendor{{ id_ch }}">chargePointVendor: (carregador no connectat)</p>
+        <p id="model{{ id_ch }}">chargePointModel: (carregador no connectat)</p>
+    </div>
+
+    <div class="w3-row informacio w3-row-padding">
+        <div class="w3-col l6 s12 m12 info-col-1 w3-section">
+            {% set id = id_ch * 2 + 1 %}
+            {% include "connector.html" %}
+
+            <div id="operationBlock{{ id }}" class="operation-block operations-content" style="display: none;">
+                {% set id = id_ch * 2 + 1 %}
+                {% set connector = 1 %}
+                {% set id_charger = id_ch %}
+                {% include "operacions.html" %}
+            </div>
+        </div>
+
+        <div class="w3-col l6 s12 m12 info-col-2 w3-section">
+            {% set id = id_ch * 2 + 2 %}
+            {% include "connector.html" %}
+
+            <div id="operationBlock{{ id }}" class="operation-block operations-content" style="display: none;">
+                {% set id = id_ch * 2 + 2 %}
+                {% set connector = 2 %}
+                {% set id_charger = id_ch %}
+                {% include "operacions.html" %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<script src="../static/scripts/operacions_scripts.js"></script>
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+<script src="../static/scripts/index_scripts.js"></script>
+{% endblock %}

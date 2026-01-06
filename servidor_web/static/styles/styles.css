@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "login_styles.css";
+@import "index_styles.css";
+@import "operacions_styles.css";
+@import "connector_styles.css";
+
+:root {
+    --grey: #333333;
+    --blue: #3B82F6;
+}
+
+header {
+    background-color: var(--grey);
+    color: white;
+}
+
+.header-row {
+    margin: 0 ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media only screen and (min-width: 992px) {
+        margin: 0 50px;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: #e9ebf0;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgb(236, 231, 231);
+}
+
+h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+h2 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: end;
+
+    @media only screen and (min-width: 992px) {
+        justify-content: center;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.w3-bar .active, .w3-bar .active-tab {
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.w3-bar .w3-bar-item:hover {
+    border-bottom: 1px solid white;
+    background-color: transparent !important;
+    color: inherit !important;
+}
+ 
+.buttons {
+    background-color: var(--grey);
+    color: white;
+    width: auto;
+    max-width: 200px;
+}
+
+.buttons:hover {
+    background-color: #202020 !important;
+    color: inherit !important;
+    border-radius: 8px;
+}
+
+.formulari {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-wrapper a {
+    overflow: visible;
+}

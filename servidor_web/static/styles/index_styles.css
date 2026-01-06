@@ -1,0 +1,30 @@
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 16px;
+}
+
+.info {
+  margin: 25px;
+  padding: 15px;
+}
+
+.operation-block {
+  background-color: white;
+  border-radius: 12px;
+  margin: 10px 0;
+  padding: 20px;
+}
+
+.dropdown {
+  width: 100%;
+}
+
+.informacio {
+  margin: 0 0;
+
+  @media only screen and (min-width: 1600px) {
+    margin: 0 14%;
+  }
+}

@@ -1,0 +1,40 @@
+.connector-block {
+  background-color: white;
+  border-radius: 12px;
+}
+
+.sections > div {
+  font-weight: bold;
+}
+
+.connectors {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .w3-bar,
+  .operation {
+    margin-left: -16px;
+  }
+
+  .imatge-estat {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.foto {
+  width: 110px;
+}
+
+input.mostrar-operacio {
+  @media only screen and (min-width: 992px) and (max-width: 1200px) {
+    padding: 12px 5px;
+    font-size: 14px;
+  }
+  @media only screen and (max-width: 600px) {
+    padding: 12px 5px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,44 @@
+.login-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    -webkit-box-shadow: 5px 5px 30px 0px rgba(120, 127, 151, 0.7);
+    -moz-box-shadow: 5px 5px 30px 0px rgba(120, 127, 151, 0.7);
+    box-shadow: 5px 5px 30px 0px rgba(120, 127, 151, 0.7);
+}
+
+input[type="submit"] {
+    background-color: var(--blue);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 8px;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #072468;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
