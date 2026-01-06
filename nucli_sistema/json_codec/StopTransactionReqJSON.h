@@ -1,0 +1,130 @@
+#ifndef _STOPTRANSACTIONREQJSON_H_
+#define _STOPTRANSACTIONREQJSON_H_
+
+#include <cJSON.h>
+#include <list.h>
+#include <stdint.h>
+
+enum Reason {
+    REASON_DE_AUTHORIZED,
+    REASON_EMERGENCY_STOP,
+    REASON_EV_DISCONNECTED,
+    REASON_HARD_RESET,
+    REASON_LOCAL,
+    REASON_OTHER,
+    REASON_POWER_LOSS,
+    REASON_REBOOT,
+    REASON_REMOTE,
+    REASON_SOFT_RESET,
+    REASON_UNLOCK_COMMAND,
+};
+
+enum Context_Stop {
+    CONTEXT_STOP_INTERRUPTION_BEGIN,
+    CONTEXT_STOP_INTERRUPTION_END,
+    CONTEXT_STOP_OTHER,
+    CONTEXT_STOP_SAMPLE_CLOCK,
+    CONTEXT_STOP_SAMPLE_PERIODIC,
+    CONTEXT_STOP_TRANSACTION_BEGIN,
+    CONTEXT_STOP_TRANSACTION_END,
+    CONTEXT_STOP_TRIGGER,
+};
+
+enum Format_Stop {
+    FORMAT_STOP_RAW,
+    FORMAT_STOP_SIGNED_DATA,
+};
+
+enum Location_Stop {
+    LOCATION_STOP_BODY,
+    LOCATION_STOP_CABLE,
+    LOCATION_STOP_EV,
+    LOCATION_STOP_INLET,
+    LOCATION_STOP_OUTLET,
+};
+
+enum Measurand_Stop {
+    MEASURAND_STOP_CURRENT_EXPORT,
+    MEASURAND_STOP_CURRENT_IMPORT,
+    MEASURAND_STOP_CURRENT_OFFERED,
+    MEASURAND_STOP_ENERGY_ACTIVE_EXPORT_INTERVAL,
+    MEASURAND_STOP_ENERGY_ACTIVE_EXPORT_REGISTER,
+    MEASURAND_STOP_ENERGY_ACTIVE_IMPORT_INTERVAL,
+    MEASURAND_STOP_ENERGY_ACTIVE_IMPORT_REGISTER,
+    MEASURAND_STOP_ENERGY_REACTIVE_EXPORT_INTERVAL,
+    MEASURAND_STOP_ENERGY_REACTIVE_EXPORT_REGISTER,
+    MEASURAND_STOP_ENERGY_REACTIVE_IMPORT_INTERVAL,
+    MEASURAND_STOP_ENERGY_REACTIVE_IMPORT_REGISTER,
+    MEASURAND_STOP_FREQUENCY,
+    MEASURAND_STOP_POWER_ACTIVE_EXPORT,
+    MEASURAND_STOP_POWER_ACTIVE_IMPORT,
+    MEASURAND_STOP_POWER_FACTOR,
+    MEASURAND_STOP_POWER_OFFERED,
+    MEASURAND_STOP_POWER_REACTIVE_EXPORT,
+    MEASURAND_STOP_POWER_REACTIVE_IMPORT,
+    MEASURAND_STOP_RPM,
+    MEASURAND_STOP_SO_C,
+    MEASURAND_STOP_TEMPERATURE,
+    MEASURAND_STOP_VOLTAGE,
+};
+
+enum Phase_Stop {
+    PHASE_STOP_L1,
+    PHASE_STOP_L1_L2,
+    PHASE_STOP_L1_N,
+    PHASE_STOP_L2,
+    PHASE_STOP_L2_L3,
+    PHASE_STOP_L2_N,
+    PHASE_STOP_L3,
+    PHASE_STOP_L3_L1,
+    PHASE_STOP_L3_N,
+    PHASE_STOP_N,
+};
+
+enum Unit_Stop {
+    UNIT_STOP_A,
+    UNIT_STOP_CELCIUS,
+    UNIT_STOP_FAHRENHEIT,
+    UNIT_STOP_K,
+    UNIT_STOP_KVAR,
+    UNIT_STOP_KVARH,
+    UNIT_STOP_K_VA,
+    UNIT_STOP_K_W,
+    UNIT_STOP_K_WH,
+    UNIT_STOP_PERCENT,
+    UNIT_STOP_V,
+    UNIT_STOP_VA,
+    UNIT_STOP_VAR,
+    UNIT_STOP_VARH,
+    UNIT_STOP_W,
+    UNIT_STOP_WH,
+};
+
+struct SampledValue_Stop {
+    enum Context_Stop * context;
+    enum Format_Stop * format;
+    enum Location_Stop * location;
+    enum Measurand_Stop * measurand;
+    enum Phase_Stop * phase;
+    enum Unit_Stop * unit;
+    char * value;
+};
+
+struct TransactionDatum {
+    list_t * sampled_value;
+    char * timestamp;
+};
+
+struct StopTransactionReq {
+    char * id_tag;
+    int64_t meter_stop;
+    enum Reason * reason;
+    char * timestamp;
+    list_t * transaction_data;
+    int64_t transaction_id;
+};
+
+struct StopTransactionReq * cJSON_ParseStopTransactionReq(const char * s);
+char * cJSON_PrintStopTransactionReq(const struct StopTransactionReq * x);
+
+#endif
