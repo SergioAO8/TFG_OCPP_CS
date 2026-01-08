@@ -20,7 +20,7 @@ Abans d’executar aquest paquet, cal executar el fitxer `pre_install.sh` amb la
 Seguidament, s’ha d’executar la comanda següent:
 
 ```bash
-sudo dpkg -i ocpp-cs-1.0-amd64.deb
+sudo dpkg -i ocpp_cs-1.0-amd64.deb
 ```
 
 D’aquesta manera, s’instal·len les llibreries necessàries per compilar i executar el nucli del sistema de control.
