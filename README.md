@@ -1,5 +1,5 @@
 # TFG_OCPP_CS
-Sistema de control OCPP en C, amb interfície d'usuari web (Flaks, HTML, CSS y JavaScript).
+Sistema de control OCPP en C, amb interfície d'usuari web (Flask, HTML, CSS y JavaScript).
 
 # A.2. Execució del sistema localment
 
